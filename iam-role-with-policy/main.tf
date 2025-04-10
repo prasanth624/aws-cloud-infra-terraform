@@ -19,7 +19,7 @@ resource "aws_iam_policy" "second_policy" {
     policy      = "${data.template_file.second_policy.rendered}"
 }
 
-resource "aws_iam_policy_attachment" "attach_second_policy" {
+resource "aws_iam_role_policy_attachment" "attach_second_policy" {
     name         = "db-access"
     roles      	 = ["${module.s3role.role_name}"]
     policy_arn	 = "${aws_iam_policy.second_policy.arn}"
