@@ -19,7 +19,7 @@ resource "aws_iam_policy" "role_policy" {
     policy 	= "${var.policy}"
 }
 
-resource "aws_iam_policy_attachment" "attach_role_policy" {
+resource "aws_iam_role_policy_attachment" "attach_role_policy" {
     name         = "${var.policy_name}"
     roles      	 = ["${aws_iam_role.iam_create_role.name}"]
     policy_arn	 = "${aws_iam_policy.role_policy.arn}"
